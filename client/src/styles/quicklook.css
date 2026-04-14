@@ -1,0 +1,18 @@
+.quicklook { position: fixed; inset: 0; z-index: 900; display: flex; align-items: center; justify-content: center; }
+.quicklook__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
+.quicklook__panel { position: relative; width: 80vw; height: 80vh; max-width: 1200px; background: var(--bg-secondary); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; overflow: hidden; }
+.quicklook__header { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; border-bottom: 1px solid var(--border-primary); font-size: 13px; font-weight: 500; }
+.quicklook__close { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--text-secondary); }
+.quicklook__close:hover { background: var(--bg-hover); }
+.quicklook__content { flex: 1; display: flex; align-items: center; justify-content: center; overflow: auto; padding: 16px; }
+.quicklook__content img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.quicklook__content video, .quicklook__content audio { max-width: 100%; max-height: 100%; }
+.quicklook__content pre { width: 100%; height: 100%; overflow: auto; padding: 16px; font-family: 'SF Mono', 'Menlo', monospace; font-size: 12px; line-height: 1.5; background: var(--bg-primary); border-radius: var(--radius-sm); white-space: pre-wrap; color: var(--text-primary); }
+.quicklook__info { text-align: center; }
+.quicklook__info-icon { font-size: 64px; }
+.quicklook__info-name { font-size: 16px; margin-top: 12px; }
+.quicklook__info-meta { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.quicklook__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-primary); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-primary); z-index: 10; }
+.quicklook__nav:hover { background: var(--bg-hover); }
+.quicklook__nav--prev { left: 16px; }
+.quicklook__nav--next { right: 16px; }

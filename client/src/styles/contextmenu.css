@@ -1,0 +1,12 @@
+.contextmenu {
+  position: fixed; background: var(--bg-secondary); border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-lg); min-width: 200px; padding: 4px 0; z-index: 1000; font-size: 12px;
+}
+.contextmenu__item {
+  display: flex; align-items: center; justify-content: space-between; padding: 4px 12px; cursor: pointer; color: var(--text-primary);
+}
+.contextmenu__item:hover { background: var(--accent); color: white; }
+.contextmenu__item--danger:hover { background: var(--danger); }
+.contextmenu__separator { height: 1px; background: var(--border-primary); margin: 4px 0; }
+.contextmenu__shortcut { color: var(--text-tertiary); font-size: 11px; margin-left: 24px; }
+.contextmenu__item:hover .contextmenu__shortcut { color: rgba(255, 255, 255, 0.7); }
