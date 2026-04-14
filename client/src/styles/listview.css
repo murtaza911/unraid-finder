@@ -1,0 +1,132 @@
+.list-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+}
+
+.list-view__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.list-view__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.list-view__header-cell {
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border-right: 1px solid var(--border-secondary);
+  transition: background 0.1s;
+}
+
+.list-view__header-cell:last-child {
+  border-right: none;
+}
+
+.list-view__header-cell:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.list-view__header-cell--active {
+  color: var(--accent);
+}
+
+.list-view__header-cell--name {
+  width: 40%;
+}
+
+.list-view__header-cell--size {
+  width: 12%;
+  text-align: right;
+}
+
+.list-view__header-cell--date {
+  width: 28%;
+}
+
+.list-view__header-cell--kind {
+  width: 20%;
+}
+
+.list-view__sort-arrow {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.list-view__body tr {
+  cursor: pointer;
+  transition: background 0.08s;
+}
+
+.list-view__body tr:hover .list-view__cell {
+  background: var(--bg-hover);
+}
+
+.list-view__body tr.list-view__row--selected .list-view__cell {
+  background: var(--accent-bg);
+}
+
+.list-view__body tr.list-view__row--selected:hover .list-view__cell {
+  background: var(--accent-bg);
+}
+
+.list-view__body tr + tr .list-view__cell {
+  border-top: 1px solid var(--border-secondary);
+}
+
+.list-view__cell {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.08s;
+}
+
+.list-view__cell--size {
+  text-align: right;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.list-view__cell--date {
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.list-view__cell--kind {
+  color: var(--text-tertiary);
+  text-transform: capitalize;
+}
+
+.list-view__row--selected .list-view__cell--size,
+.list-view__row--selected .list-view__cell--date,
+.list-view__row--selected .list-view__cell--kind {
+  color: var(--accent);
+}
+
+.list-view__file-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.list-view__file-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
