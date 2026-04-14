@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>UnraidFinder</Name>
-  <Repository>ghcr.io/murtaza-nasir/unraid-finder:latest</Repository>
-  <Registry>https://github.com/murtaza-nasir/unraid-finder/pkgs/container/unraid-finder</Registry>
+  <Repository>ghcr.io/murtaza911/unraid-finder:latest</Repository>
+  <Registry>https://github.com/murtaza911/unraid-finder/pkgs/container/unraid-finder</Registry>
   <Branch>
     <Tag>latest</Tag>
     <TagDescription>Latest stable release</TagDescription>
   </Branch>
   <Network>bridge</Network>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/murtaza-nasir/unraid-finder/main/icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/murtaza911/unraid-finder/main/icon.png</Icon>
   <Overview>A beautiful, macOS Finder-style file browser for your Unraid NAS. Browse, preview, search, upload, download, and manage files with a familiar interface.</Overview>
   <Category>Tools:Utilities</Category>
   <Description>A beautiful, macOS Finder-style file browser for your Unraid NAS.</Description>
-  <Support>https://github.com/murtaza-nasir/unraid-finder/issues</Support>
-  <Project>https://github.com/murtaza-nasir/unraid-finder</Project>
+  <Support>https://github.com/murtaza911/unraid-finder/issues</Support>
+  <Project>https://github.com/murtaza911/unraid-finder</Project>
   <ExtraSearchTerms>file manager finder browser explorer files</ExtraSearchTerms>
   <Config Name="Web UI Port" Target="3000" Default="3000" Mode="tcp" Type="Port" Display="always" Required="true" Description="Port for the web interface"/>
   <Config Name="App Data" Target="/app/data" Default="/mnt/user/appdata/unraid-finder" Mode="rw" Type="Path" Display="always" Required="true" Description="Persistent storage for database and configuration"/>

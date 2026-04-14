@@ -63,7 +63,7 @@ Press **Space** to instantly preview the selected file without opening an extern
 
 1. In the Unraid web UI, go to **Apps** and search for **UnraidFinder**, or manually add the template URL:
    ```
-   https://raw.githubusercontent.com/murtaza-nasir/unraid-finder/main/unraid-template.xml
+   https://raw.githubusercontent.com/murtaza911/unraid-finder/main/unraid-template.xml
    ```
 2. Click **Install** and fill in:
    - **Web UI Port** — default `3000`
@@ -86,7 +86,7 @@ docker run -d \
   -e ADMIN_USERNAME=admin \
   -e ADMIN_PASSWORD=changeme \
   -e JWT_SECRET=change-this-secret \
-  ghcr.io/murtaza-nasir/unraid-finder:latest
+  ghcr.io/murtaza911/unraid-finder:latest
 ```
 
 ### Docker Compose
@@ -95,7 +95,7 @@ docker run -d \
 version: "3.8"
 services:
   unraid-finder:
-    image: ghcr.io/murtaza-nasir/unraid-finder:latest
+    image: ghcr.io/murtaza911/unraid-finder:latest
     ports:
       - "3000:3000"
     volumes:
@@ -155,7 +155,7 @@ Navigate to **Settings** (gear icon in the top bar) to:
 ### Setup
 
 ```bash
-git clone https://github.com/murtaza-nasir/unraid-finder.git
+git clone https://github.com/murtaza911/unraid-finder.git
 cd unraid-finder
 npm install
 ```
