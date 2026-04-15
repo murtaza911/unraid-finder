@@ -17,9 +17,18 @@ type TokenVerifier = (token: string) => TokenPayload | null;
 
 export function createAuthMiddleware(verifyToken: TokenVerifier) {
   return (req: Request, res: Response, next: NextFunction): void => {
+    // Support token in query string for media URLs (img src, video src, etc.)
+    const queryToken = req.query.token as string | undefined;
     const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) { res.status(401).json({ error: 'Authentication required' }); return; }
-    const token = authHeader.slice(7);
+    let token: string | undefined;
+
+    if (authHeader?.startsWith('Bearer ')) {
+      token = authHeader.slice(7);
+    } else if (queryToken) {
+      token = queryToken;
+    }
+
+    if (!token) { res.status(401).json({ error: 'Authentication required' }); return; }
     const payload = verifyToken(token);
     if (!payload) { res.status(401).json({ error: 'Invalid or expired token' }); return; }
     req.user = payload;

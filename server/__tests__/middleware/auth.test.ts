@@ -2,8 +2,8 @@ import { describe, it, expect, vi } from 'vitest';
 import type { Request, Response, NextFunction } from 'express';
 import { createAuthMiddleware } from '../../src/middleware/auth.js';
 
-function mockReqResNext(authHeader?: string) {
-  const req = { headers: { authorization: authHeader } } as unknown as Request;
+function mockReqResNext(authHeader?: string, queryToken?: string) {
+  const req = { headers: { authorization: authHeader }, query: { token: queryToken } } as unknown as Request;
   const res = { status: vi.fn().mockReturnThis(), json: vi.fn().mockReturnThis() } as unknown as Response;
   const next = vi.fn() as NextFunction;
   return { req, res, next };

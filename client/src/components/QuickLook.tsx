@@ -23,11 +23,13 @@ function formatSize(bytes: number): string {
   return `${(bytes / 1024 / 1024 / 1024).toFixed(1)} GB`;
 }
 
+const HEIC_EXTENSIONS = new Set(['.heic', '.heif']);
+
 function getFileType(file: FileEntry): 'text' | 'image' | 'video' | 'audio' | 'pdf' | 'other' {
   const mime = file.mimeType ?? '';
   const ext = (file.extension ?? '').toLowerCase();
 
-  if (mime.startsWith('image/')) return 'image';
+  if (mime.startsWith('image/') || HEIC_EXTENSIONS.has(ext)) return 'image';
   if (mime.startsWith('video/')) return 'video';
   if (mime.startsWith('audio/')) return 'audio';
   if (mime === 'application/pdf') return 'pdf';
@@ -48,7 +50,9 @@ function fileIcon(file: FileEntry): string {
 
 function buildMediaUrl(file: FileEntry): string {
   const token = localStorage.getItem('token') ?? '';
-  return `/api/download?path=${encodeURIComponent(file.path)}&token=${encodeURIComponent(token)}`;
+  const ext = (file.extension ?? '').toLowerCase();
+  const preview = HEIC_EXTENSIONS.has(ext) ? '&preview=true' : '';
+  return `/api/download?path=${encodeURIComponent(file.path)}&token=${encodeURIComponent(token)}${preview}`;
 }
 
 export function QuickLook({ file, allFiles, onClose, onNavigate }: QuickLookProps) {

@@ -2,16 +2,30 @@ import { Router } from 'express';
 import path from 'node:path';
 import fs from 'node:fs';
 import archiver from 'archiver';
+import sharp from 'sharp';
 import type { FileSystemService } from '../services/fileSystem.js';
 import type { ZipService } from '../services/zip.js';
 
+const HEIC_EXTENSIONS = new Set(['.heic', '.heif']);
+
 export function createDownloadRoutes(fss: FileSystemService, zipService: ZipService): Router {
   const router = Router();
-  router.get('/', (req, res) => {
+  router.get('/', async (req, res) => {
     try {
       const filePath = req.query.path as string;
       if (!filePath) { res.status(400).json({ error: 'Path required' }); return; }
       const absolutePath = fss.getAbsolutePath(filePath);
+      const ext = path.extname(absolutePath).toLowerCase();
+
+      // Convert HEIC/HEIF to JPEG for browser preview
+      if (HEIC_EXTENSIONS.has(ext) && req.query.preview === 'true') {
+        const buffer = await sharp(absolutePath).jpeg({ quality: 85 }).toBuffer();
+        res.setHeader('Content-Type', 'image/jpeg');
+        res.setHeader('Content-Disposition', `inline; filename="${path.basename(absolutePath, ext)}.jpg"`);
+        res.send(buffer);
+        return;
+      }
+
       res.download(absolutePath, path.basename(absolutePath));
     } catch (err: any) { res.status(404).json({ error: err.message }); }
   });
