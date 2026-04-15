@@ -18,8 +18,8 @@
   <ExtraSearchTerms>file manager finder browser explorer files</ExtraSearchTerms>
   <Config Name="Web UI Port" Target="3000" Default="3000" Mode="tcp" Type="Port" Display="always" Required="true" Description="Port for the web interface"/>
   <Config Name="App Data" Target="/app/data" Default="/mnt/user/appdata/unraid-finder" Mode="rw" Type="Path" Display="always" Required="true" Description="Persistent storage for database and configuration"/>
-  <Config Name="Media" Target="/browse/Media" Default="/mnt/user/Media" Mode="rw" Type="Path" Display="always" Required="false" Description="Media share — add more path mappings to /browse/ as needed"/>
-  <Config Name="Documents" Target="/browse/Documents" Default="/mnt/user/Documents" Mode="rw" Type="Path" Display="always" Required="false" Description="Documents share"/>
+  <Config Name="Share 1" Target="/browse/Share1" Default="" Mode="rw" Type="Path" Display="always" Required="false" Description="Map a share to browse. Set the host path and rename the container path to /browse/YourShareName"/>
+  <Config Name="Share 2" Target="/browse/Share2" Default="" Mode="rw" Type="Path" Display="always" Required="false" Description="Map another share. Add more paths via 'Add another Path' below"/>
   <Config Name="Admin Username" Target="ADMIN_USERNAME" Default="admin" Type="Variable" Display="always" Required="true" Description="Username for the initial admin account"/>
   <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Type="Variable" Display="always" Required="true" Mask="true" Description="Password for the initial admin account"/>
   <Config Name="JWT Secret" Target="JWT_SECRET" Default="" Type="Variable" Display="advanced" Required="false" Mask="true" Description="Secret for JWT tokens — auto-generated if empty"/>

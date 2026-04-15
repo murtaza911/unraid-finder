@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useStore } from '../store/index.js';
 import type { ViewMode, SortField } from '../types/index.js';
 import '../styles/toolbar.css';
@@ -23,6 +24,7 @@ const SORT_OPTIONS: { value: SortField; label: string }[] = [
 ];
 
 export function Toolbar({ searchQuery, onSearchChange, onUploadClick }: ToolbarProps) {
+  const navigate = useNavigate();
   const {
     viewMode,
     setViewMode,
@@ -123,6 +125,17 @@ export function Toolbar({ searchQuery, onSearchChange, onUploadClick }: ToolbarP
       {/* Upload */}
       <button className="toolbar__upload-btn" onClick={onUploadClick} aria-label="Upload files">
         ↑ Upload
+      </button>
+
+      {/* Settings */}
+      <button
+        className="toolbar__nav-btn"
+        onClick={() => navigate('/settings')}
+        title="Settings"
+        aria-label="Settings"
+        style={{ fontSize: 16 }}
+      >
+        ⚙
       </button>
     </div>
   );
