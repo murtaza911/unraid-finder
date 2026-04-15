@@ -82,20 +82,18 @@ Press **Space** to instantly preview the selected file without opening an extern
 
 ## Installation
 
-### Unraid (Community Applications / Template)
+### Unraid
 
-1. In the Unraid web UI, go to **Apps** and search for **UnraidFinder**, or manually add the template URL:
+1. Open the Unraid terminal and run:
    ```
-   https://raw.githubusercontent.com/murtaza911/unraid-finder/main/unraid-template.xml
+   wget -O /boot/config/plugins/dockerMan/templates-user/unraid-finder.xml https://raw.githubusercontent.com/murtaza911/unraid-finder/main/unraid-template.xml
    ```
-2. Click **Install** and fill in:
-   - **Web UI Port** — default `3000`
-   - **App Data** — e.g. `/mnt/user/appdata/unraid-finder`
-   - **Media** / **Documents** — map your Unraid shares to `/browse/<ShareName>`
-   - **Admin Username** and **Admin Password**
-3. Click **Apply**. The container will pull, start, and be accessible at `http://<unraid-ip>:3000`.
+2. Go to **Docker** tab > **Add Container**
+3. Select **UnraidFinder** from the Template dropdown
+4. Configure the port, app data path, share mappings, and admin credentials using the familiar Unraid edit UI
+5. Click **Apply**
 
-To expose additional shares, add more **Path** mappings in the container settings with a **Container Path** of `/browse/<YourShareName>`.
+To expose additional shares after setup, edit the container and add more **Path** mappings with a **Container Path** of `/browse/<YourShareName>`.
 
 ### Docker (manual)
 
