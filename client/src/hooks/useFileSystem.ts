@@ -20,7 +20,7 @@ function sortEntries(entries: FileEntry[], field: SortField, direction: SortDire
 
 export function useFileSystem() {
   const { currentPath, setCurrentPath, setEntries, setLoading, sortField, sortDirection, entries } = useStore();
-  const pollingRef = useRef<ReturnType<typeof setInterval>>();
+  const pollingRef = useRef<ReturnType<typeof setInterval>>(undefined);
 
   const fetchDirectory = useCallback(async (path: string) => {
     setLoading(true);
