@@ -93,7 +93,7 @@ Press **Space** to instantly preview the selected file without opening an extern
 4. Configure the port, app data path, share mappings, and admin credentials using the familiar Unraid edit UI
 5. Click **Apply**
 
-To expose additional shares after setup, edit the container and add more **Path** mappings with a **Container Path** of `/browse/<YourShareName>`.
+To add shares, edit the container and add **Path** mappings — use the same path on both sides (e.g. host `/mnt/user/Media` → container `/mnt/user/Media`). The share name in Finder is derived from the folder name automatically.
 
 ### Docker (manual)
 
@@ -102,8 +102,8 @@ docker run -d \
   --name unraid-finder \
   -p 3000:3000 \
   -v /path/to/appdata:/app/data \
-  -v /mnt/user/Media:/browse/Media \
-  -v /mnt/user/Documents:/browse/Documents \
+  -v /mnt/user/Media:/mnt/user/Media \
+  -v /mnt/user/Documents:/mnt/user/Documents \
   -e ADMIN_USERNAME=admin \
   -e ADMIN_PASSWORD=changeme \
   -e JWT_SECRET=change-this-secret \
@@ -121,8 +121,8 @@ services:
       - "3000:3000"
     volumes:
       - ./data:/app/data
-      - /mnt/user/Media:/browse/Media
-      - /mnt/user/Documents:/browse/Documents
+      - /mnt/user/Media:/mnt/user/Media
+      - /mnt/user/Documents:/mnt/user/Documents
     environment:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=changeme
@@ -136,10 +136,10 @@ services:
 
 ### Adding More Shares
 
-Mount any host path to a sub-directory under `/browse/` inside the container:
+Mount any host path using the same path on both sides:
 
 ```
--v /mnt/user/Photos:/browse/Photos
+-v /mnt/user/Photos:/mnt/user/Photos
 ```
 
 That share will immediately appear in the sidebar under **Photos**.

@@ -15,10 +15,10 @@ COPY --from=build /app/server/dist ./server/dist
 COPY --from=build /app/server/package.json ./server/
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/client/dist ./client/dist
-RUN mkdir -p /browse /app/data
+RUN mkdir -p /mnt/user /app/data
 ENV NODE_ENV=production
 ENV PORT=3000
-ENV BROWSE_ROOT=/browse
+ENV BROWSE_ROOT=/mnt/user
 ENV DATA_DIR=/app/data
 EXPOSE 3000
 WORKDIR /app/server

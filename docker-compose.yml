@@ -6,7 +6,7 @@ services:
       - "3000:3000"
     volumes:
       - ./data:/app/data
-      - ./test-files:/browse/TestFiles
+      - ./test-files:/mnt/user/TestFiles
     environment:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=admin123

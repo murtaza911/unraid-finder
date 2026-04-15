@@ -10,7 +10,7 @@
   <Network>bridge</Network>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/murtaza911/unraid-finder/main/icon.png</Icon>
-  <Overview>A beautiful, macOS Finder-style file browser for your Unraid NAS. Browse, preview, search, upload, download, and manage files with a familiar interface. Add as many shares as you need by adding Path mappings to /browse/YourShareName.</Overview>
+  <Overview>A beautiful, macOS Finder-style file browser for your Unraid NAS. Browse, preview, search, upload, download, and manage files with a familiar interface. Add shares by mapping host paths to the same path inside the container (e.g. /mnt/user/Media to /mnt/user/Media).</Overview>
   <Category>Tools:Utilities</Category>
   <Description>A beautiful, macOS Finder-style file browser for your Unraid NAS.</Description>
   <Support>https://github.com/murtaza911/unraid-finder/issues</Support>
