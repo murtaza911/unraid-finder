@@ -47,9 +47,9 @@ export function BrowserPage() {
     ? entries.filter((e) => e.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
     : entries;
 
-  // Fetch disk usage
+  // Fetch disk usage for the current path's filesystem
   useEffect(() => {
-    api.get<{ free: number }>('/files/disk')
+    api.get<{ free: number }>('/files/disk', { params: { path: currentPath } })
       .then((res) => setDiskFree(res.data.free))
       .catch(() => {});
   }, [currentPath]);

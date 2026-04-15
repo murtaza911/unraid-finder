@@ -10,6 +10,6 @@ export function createFilesRoutes(fss: FileSystemService): Router {
   router.post('/copy', (req, res) => { try { fss.copy(req.body.source, req.body.destination); res.json({ success: true }); } catch (err: any) { res.status(400).json({ error: err.message }); } });
   router.post('/move', (req, res) => { try { fss.move(req.body.source, req.body.destination); res.json({ success: true }); } catch (err: any) { res.status(400).json({ error: err.message }); } });
   router.delete('/', (req, res) => { try { fss.delete(req.body.path); res.json({ success: true }); } catch (err: any) { res.status(400).json({ error: err.message }); } });
-  router.get('/disk', (_req, res) => { try { res.json(fss.getDiskUsage()); } catch (err: any) { res.status(500).json({ error: err.message }); } });
+  router.get('/disk', (req, res) => { try { const p = req.query.path as string | undefined; res.json(fss.getDiskUsage(p || undefined)); } catch (err: any) { res.status(500).json({ error: err.message }); } });
   return router;
 }

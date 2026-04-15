@@ -77,8 +77,9 @@ export class FileSystemService {
 
   getAbsolutePath(relativePath: string): string { return this.resolve(relativePath); }
 
-  getDiskUsage(): { total: number; free: number } {
-    const stats = fs.statfsSync(this.browseRoot);
+  getDiskUsage(relativePath?: string): { total: number; free: number } {
+    const target = relativePath ? this.resolve(relativePath) : this.browseRoot;
+    const stats = fs.statfsSync(target);
     return { total: stats.blocks * stats.bsize, free: stats.bfree * stats.bsize };
   }
 }

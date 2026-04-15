@@ -10,7 +10,7 @@
   <Network>bridge</Network>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/murtaza911/unraid-finder/main/icon.png</Icon>
-  <Overview>A beautiful, macOS Finder-style file browser for your Unraid NAS. Browse, preview, search, upload, download, and manage files with a familiar interface.</Overview>
+  <Overview>A beautiful, macOS Finder-style file browser for your Unraid NAS. Browse, preview, search, upload, download, and manage files with a familiar interface. Add as many shares as you need by adding Path mappings to /browse/YourShareName.</Overview>
   <Category>Tools:Utilities</Category>
   <Description>A beautiful, macOS Finder-style file browser for your Unraid NAS.</Description>
   <Support>https://github.com/murtaza911/unraid-finder/issues</Support>
@@ -18,8 +18,6 @@
   <ExtraSearchTerms>file manager finder browser explorer files</ExtraSearchTerms>
   <Config Name="Web UI Port" Target="3000" Default="3000" Mode="tcp" Type="Port" Display="always" Required="true" Description="Port for the web interface"/>
   <Config Name="App Data" Target="/app/data" Default="/mnt/user/appdata/unraid-finder" Mode="rw" Type="Path" Display="always" Required="true" Description="Persistent storage for database and configuration"/>
-  <Config Name="Share 1" Target="/browse/Share1" Default="" Mode="rw" Type="Path" Display="always" Required="false" Description="Map a share to browse. Set the host path and rename the container path to /browse/YourShareName"/>
-  <Config Name="Share 2" Target="/browse/Share2" Default="" Mode="rw" Type="Path" Display="always" Required="false" Description="Map another share. Add more paths via 'Add another Path' below"/>
   <Config Name="Admin Username" Target="ADMIN_USERNAME" Default="admin" Type="Variable" Display="always" Required="true" Description="Username for the initial admin account"/>
   <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Type="Variable" Display="always" Required="true" Mask="true" Description="Password for the initial admin account"/>
   <Config Name="JWT Secret" Target="JWT_SECRET" Default="" Type="Variable" Display="advanced" Required="false" Mask="true" Description="Secret for JWT tokens — auto-generated if empty"/>
