@@ -1,0 +1,54 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="darkOrange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF8C2F"/>
+      <stop offset="100%" stop-color="#E26A1A"/>
+    </linearGradient>
+    <linearGradient id="lightOrange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFB86C"/>
+      <stop offset="100%" stop-color="#FFA54D"/>
+    </linearGradient>
+    <path id="squircle" d="
+      M256,24
+      C348,24 396,24 438,50
+      C468,68 492,92 500,114
+      C512,148 512,192 512,256
+      C512,320 512,364 500,398
+      C492,420 468,444 438,462
+      C396,488 348,488 256,488
+      C164,488 116,488 74,462
+      C44,444 20,420 12,398
+      C0,364 0,320 0,256
+      C0,192 0,148 12,114
+      C20,92 44,68 74,50
+      C116,24 164,24 256,24 Z
+    "/>
+    <clipPath id="faceClip">
+      <path d="
+        M0,0
+        L0,512
+        L260,512
+        C260,512 258,470 256,450
+        Q254,420 240,400
+        Q230,388 232,370
+        Q234,352 250,340
+        Q258,334 260,326
+        Q264,310 268,300
+        L300,260
+        Q310,248 308,236
+        Q306,224 298,218
+        Q280,206 270,192
+        Q262,180 260,168
+        Q258,148 258,130
+        Q258,110 260,90
+        L260,0
+        Z
+      "/>
+    </clipPath>
+  </defs>
+  <use href="#squircle" fill="url(#lightOrange)"/>
+  <use href="#squircle" fill="url(#darkOrange)" clip-path="url(#faceClip)"/>
+  <ellipse cx="178" cy="210" rx="30" ry="32" fill="white"/>
+  <ellipse cx="348" cy="210" rx="30" ry="32" fill="white"/>
+  <path d="M165,330 Q256,390 347,330" fill="none" stroke="white" stroke-width="6" stroke-linecap="round"/>
+</svg>
