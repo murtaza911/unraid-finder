@@ -57,9 +57,9 @@ export function createApp() {
   app.use('/api/settings', authMiddleware, createSettingsRoutes(db, BROWSE_ROOT));
 
   // Serve React app in production
-  const clientDist = path.join(process.cwd(), '..', 'client', 'dist');
+  const clientDist = process.env.CLIENT_DIST || path.resolve(__dirname, '..', '..', 'client', 'dist');
   app.use(express.static(clientDist));
-  app.get('*', (_req, res) => {
+  app.get('/{*path}', (_req, res) => {
     res.sendFile(path.join(clientDist, 'index.html'));
   });
 

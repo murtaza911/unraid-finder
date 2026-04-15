@@ -4,6 +4,29 @@
 
 Browse, preview, search, upload, download, and manage files across your Unraid shares with a familiar, polished interface — all from the browser.
 
+## Screenshots
+
+### Icon View (Light Mode)
+![Icon View](screenshots/02-icon-view.png)
+
+### List View
+![List View](screenshots/04-list-view.png)
+
+### Column View
+![Column View](screenshots/05-column-view.png)
+
+### Gallery View
+![Gallery View](screenshots/07-context-menu.png)
+
+### Dark Mode
+![Dark Mode](screenshots/09-dark-mode.png)
+
+### Settings
+![Settings](screenshots/08-settings-dark.png)
+
+### Login
+![Login](screenshots/01-login.png)
+
 ---
 
 ## Features
